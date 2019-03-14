@@ -1,0 +1,113 @@
+NOTES:
+
+HEAD	:                git's name for the current commit
+master:	               git's name for the master branch (official branch with working version)
+working directory:	   directory your working in and make your changes
+staging area:	         area where files are added in order to use them for the next commit
+repository:            area where all commits are saved
+origin:	               default name for remote on GitHub (after making a fork, origin points to the fork)
+upstream:	             name for remote on GitHub pointing to the original remote after making a fork
+clone:	               a copy of the repository on the local computer or from GitHub to the local computer
+fork:	                 a copy of a repository from GitHub to GitHub
+fast-forward merges:	 merge of two commits, where one commit is reachable by the other
+
+
+
+COMMANDS:
+
+It is a good idea to introduce yourself to Git with your name and public email address before doing any operation.
+You have to identify yourself locally:
+
+     git config user.name "name":    This signs your name locally to current repository with name.
+     git config user.email "e-mail": this signs your email locally to current repository with e-mail.
+     globally:
+     git config --global user.name "name":    This signs your name globally to current repository with name.
+     git config --global user.email "e-mail": this signs your email globally to current repository with e-mail.
+
+Initialize a repository or clone it:
+
+     git init: You’ve now initialized the working directory—you may notice a new directory created, named ".git"
+     git clone: Clone a repository into a new directory(could be a link).
+
+Adding files to the repo:
+
+     $ git add .: Add all files that have changes to the temporary stage
+     $ git add [file_name]: Add file_name to the temporary stage.
+     $ git commit [file_name]: This permanently stores the contents of the index in the repository.
+     $ git commit -a: This  will automatically notice any modified (but not new) files, add them to the index, and commit, all in one step.
+     $ .gitignore [file_1] [file_2] ... [file_n]: to tell Git about the files that Git should not track.
+
+Check changes:
+
+     $ git log: Show commit logs.
+     $ git log --graph: shows the commit logs in tree-view.
+     $ git log --newline: Lists one commit per line. Show first 7 characters of SHA and the commit message
+     $ git log --all: Shows all commits of all branches.
+     $ git log -n 1: shows only the most recent log.
+     $ git log -p: complete diffs at each step.
+     $ git log --stat --summary: the overview of the change is useful to get a feel of each step.
+     $ git shortlog: Group by contributor commits.
+     $ git shortlog -s -n: -n show just the number of commits, -n arrange it numerically
+     $ git log --author=[author_name]: Filter By Author
+     $ git log --grep=[part_of_commit_message]: Filter commits by the provided message part.
+     $ git show [SHA]: shows a specific commit
+     $ git diff: Show changes between commits, commit and working tree, etc
+     $ git diff [first_id] [second_id]: changes between first and second ids.
+     $ git diff --cached: You can see what is about to be committed using git diff with the --cached option.
+     $ git status: Show the working tree status
+
+Tagging:
+
+     $ git tag [version_number ex:v1.0]: Adds a tag to current commit.
+     $ git tag -a v1.0: RECOMMENDED because Annotated tags include (the person who made the tag, the date the tag was made, a message for the tag)
+     $ git tag: fetches all the available tags for this repository.
+     $ git tag -a v1.0 a87984: Adding A Tag To A Past Commit
+     $ git tag -d v1.0: Deletes the tag
+
+Branching:
+
+     $ git branch: shows the available branches and identify the current branch with '*'.
+     $ git branch [branch_name]: creates new branch with branch_name.
+     $ git checkout -b [branch_name]: Creates a new branch and switches to it.
+     $ git branch -d [branch_name]: deletes branch_name
+     $ git checkout [branch_name]: switch to the branch_name branch.
+
+Merging:
+
+     $ git merge [first_branch] [second_branch]: merges two branches together
+     $ git reset --hard HEAD^: This command undo the merge
+
+Undoing Changes:
+
+     $ git commit --amend: alter the most-recent commit.
+     $ git revert [SHA-of-commit-to-revert]: Creates a new snapshot with a revert changes of the given SHA commit
+     $ git revert [SHA-of-commit-to-revert] -e / --edit: open the editor to change the message.
+     $ git revert [SHA-of-commit-to-revert] --no-edit: Will not open the editor.
+     $ git revert [SHA-of-commit-to-revert] -n / --no-commit: will add the changes to the staging index
+
+Reset:
+
+     The git reset command is used erase commits:
+     $ git reset <reference-to-commit>:
+     It can be used to:
+     move the HEAD and current branch pointer to the referenced commit
+     erase commits with the --hard flag
+     moves committed changes to the staging index with the --soft flag
+     unstages committed changes --mixed flag
+     Typically, ancestry references are used to indicate previous commits. The ancestry references are:
+     ^ – indicates the parent commit
+     ~ – indicates the first parent commit
+
+Collaboration:
+
+     $ git remote: to view and create remotes
+     $ git remote add [referral_name] [remote_repo_link]: To add this repository on GitHub as a remote.
+     $ git remote -v: v stands for verbose that means that git will get more information.
+     $ git remote rename [old_name] [new_name]:
+     $ git push [referral_name] [branch_name]: to send my changes to the remote
+     $ git pull [referral_name] [branch_name]: to pull changes on branch_name locally
+     $ bash file_name.sh [remote_repo_link]: pushes modified code to your remote repo.
+     $ git fetch [referral_name]: gets a sneak peak of the log of the remotely repo.
+     $ git fetch [referral_name] [branch_name]: do the same as git pull but without the merging step
+     $ git merge [branch_name] [referral_name/branch_name]: merges the commits on the local with remote repos.
+     $ git remote rm origin: disconnect local git repo from remote master

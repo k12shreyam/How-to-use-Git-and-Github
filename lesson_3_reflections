@@ -1,0 +1,36 @@
+When would you want to use a remote repository rather than keeping all your work local?
+
+     When working on different computers or together with other people a remote repository can be useful.
+
+Why might you want to always pull changes manually rather than having Git automatically stay up-to-date with your remote repository?
+
+     Changes on a remote repository can also come from another person. Maybe the changes don't match to my work. 
+     So it's better to end up with the things I'm doing. With the next commit I can implement the changes in a new commit.
+
+Describe the differences between forks, clones, and branches. When would you use one 
+instead of another?
+
+     - A fork is a github concept which allows you to copy someone else github repository to your own github repository. 
+     - Cloning is copying a repository either from a remote to local  or from a local to local. In addition when cloning
+       a new .git/config file is created. 
+     - Lastly a branch is just a git object that stores a reference to a commit and any commit following the creation of a
+       branch will be seperate from other branches. You would use a branch when you want to maintain two similar but
+       different copies of content such as creating a new feature in software.
+       
+What is the benefit of having a copy of the last known state of the remote stored locally?
+
+     If I am about to go without Internet access for a while, for example to work on a plane, I can update my local copy
+     before I leave.  I can do this even if I'm not ready to merge those changes into my own branches yet.  Then if I want,
+     I can perform the merge while offline, or I need to know what the remote version is at some point, I have an easy way to access it.
+    
+How would you collaborate without using Git or GitHub? What would be easier, and what would be harder?
+
+     Without github you would have to do alot more reading of others code. You could still use a diff tool but you would
+     probably create version manually by copying full directories of code for every major change. This would be a lot harder.
+
+When would you want to make changes in a separate branch rather than directly in master? 
+What benefits does each approach have?
+
+     I tend to work directly in master more often when I'm working on my own or with just one or two other people.
+     When working with a large group, though,using branches to keep track of which changes have already been reviewed and
+     approved is extremely helpful.
